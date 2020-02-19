@@ -5,12 +5,15 @@
     <title>Active GitHub Forks</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <style>
@@ -25,38 +28,45 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="width: 100%; max-width: 100%">
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="card">
-                    <div class="card-header text-center">
-                        <h3>
-                            <a href="https://github.com/techgaun/active-forks" class="black">
-                                <i class="fa fa-github-alt pull-left" aria-hidden="true"></i>
-                            </a>
-                            Active GitHub Forks
-                        </h3>
-                    </div>
+					<div class="card-body">
+						<div class="card-title text-center">
+							<h3>
+								<a href="https://github.com/techgaun/active-forks" class="black">
+									<i class="fa fa-github-alt pull-left" aria-hidden="true"></i>
+								</a>
+								Active GitHub Forks
+							</h3>
+						</div>
 
-                    <div class="card-block">
-                        <div class="form-group">
-                          <form id="form" role="form">
-                              <div class="input-group">
-                                  <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks">
-                                  <span class="input-group-btn">
-                                      <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
-                                          <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden></i> Find
-                                      </button>
-                                  </span>
-                              </div>
-                          </form>
-                        </div>
+						<div class="card-text">
+							<div class="form-group">
+							  <form id="form" role="form">
+								  <div class="input-group">
+									  <input id="q" name="q" class="form-control" type="text" placeholder="techgaun/github-dorks">
+									  <span class="input-group-btn">
+										  <button id="find" onClick="fetchData()" type="button" class="btn btn-primary">
+											  <i id="spinner" class="fa fa-spinner fa-pulse fa-fw" hidden></i> Find
+										  </button>
+									  </span>
+									<div class="btn pull-right">Rate limit:
+										<span id="rateRemaining">?</span>
+										of
+										<span id="rateLimit">?</span>
+									</div>
+								  </div>
+							  </form>
+							</div>
 
-                        <div id="data-body"></div>
-                        <table id="forkTable" class="display" width="100%"></table>
-                    </div>
-                    <div id="footer" class="card-footer text-muted"></div>
-                </div>
+							<div id="data-body"></div>
+							<table id="forkTable" class="display" width="100%"></table>
+						</div>
+						<div id="footer" class="card-footer text-muted"></div>
+					</div>
+				</div>
             </div>
         </div>
     </div>
